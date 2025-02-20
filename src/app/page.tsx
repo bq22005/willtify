@@ -1,11 +1,10 @@
 import styles from "./page.module.css";
+import AuthForm from "@/app/components/layouts/AuthForm";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <div className={styles.hero}>
-        <h1>Notifill</h1>
-      </div>
+      <AuthForm />
     </div>
   );
 }

@@ -1,0 +1,61 @@
+.authForm {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.signInFormContainer, .signUpFormContainer {
+    position: absolute;
+    padding: 10px 20px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.signInFormContainer {
+    top: 0;
+    left: 0;
+}
+
+.signUpFormContainer {
+    top: 0;
+    left: 50%;
+}
+
+.formTitle {
+    margin: 30px 0;
+}
+
+.signInFormContainer input ,.signUpFormContainer input {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.toggleLeft, .toggleRight {
+    position: absolute;
+    padding: 20px 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.toggleLeft {
+    top: 0;
+    left: 0;
+}
+
+.toggleRight {
+    top: 0;
+    left: 50%;
+}
+
+.switchPage {
+    width: 100%;
+}
