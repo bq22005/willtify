@@ -5,6 +5,7 @@
     height: 500px;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
 }
 
 .signInFormContainer, .signUpFormContainer {
@@ -22,9 +23,19 @@
     left: 0;
 }
 
+.signInFormContainerActive {
+    top: -100%;
+    left: -100%;
+}
+
 .signUpFormContainer {
-    top: 0;
+    top: 100%;
     left: 50%;
+}
+
+.signUpFormContainerActive {
+    top: 0;
+    left: 0;
 }
 
 .formTitle {
@@ -47,13 +58,18 @@
 }
 
 .toggleLeft {
-    top: 0;
+    top: -100%;
     left: 0;
 }
 
 .toggleRight {
     top: 0;
     left: 50%;
+}
+
+.toggleRightActive {
+    top: 100%;
+    left: 100%;
 }
 
 .switchPage {

@@ -24,12 +24,14 @@ export default function AuthForm() {
             <div className={styles.toggleLeft}>
                 <div className={styles.switchPage}>
                     <h1 className={styles.toggleTitle}>Hi, there!</h1>
+                    <p>...or account already exist?</p>
                     <span className={styles.switchPage}>ログイン</span>
                 </div>
             </div>
             <div className={styles.toggleRight}>
                 <div className={styles.switchPage}>
                     <h1 className={styles.toggleTitle}>Welcome, back!</h1>
+                    <p>...or first visit?</p>
                     <span className={styles.switchPage}>サインアップ</span>
                 </div>
             </div>
