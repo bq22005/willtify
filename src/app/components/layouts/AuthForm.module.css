@@ -8,7 +8,7 @@
     overflow: hidden;
 }
 
-.signInFormContainer, .signUpFormContainer {
+.signInFormContainer, .signUpFormContainer, .signInFormContainerActive, .signUpFormContainerActive {
     position: absolute;
     padding: 10px 20px;
     width: 50%;
@@ -16,38 +16,39 @@
     display: flex;
     align-items: center;
     text-align: center;
+    transition: all 0.6s ease-in-out;
 }
 
 .signInFormContainer {
     top: 0;
     left: 0;
+    transform: translate(0, 0);
 }
 
 .signInFormContainerActive {
-    top: -100%;
-    left: -100%;
+    transform: translate(-100%, -100%);
 }
 
 .signUpFormContainer {
-    top: 100%;
-    left: 50%;
+    top: 0;
+    left: 0;
+    transform: translate(100%, 100%);
 }
 
 .signUpFormContainerActive {
-    top: 0;
-    left: 0;
+    transform: translate(0, 0);
 }
 
 .formTitle {
     margin: 30px 0;
 }
 
-.signInFormContainer input ,.signUpFormContainer input {
+.signInFormContainer input ,.signUpFormContainer input, .signInFormContainerActive input ,.signUpFormContainerActive input {
     margin-bottom: 10px;
     width: 100%;
 }
 
-.toggleLeft, .toggleRight {
+.toggleLeft, .toggleRight, .toggleLeftActive, .toggleRightActive {
     position: absolute;
     padding: 20px 0;
     width: 50%;
@@ -55,23 +56,33 @@
     display: flex;
     align-items: center;
     text-align: center;
+    transition: all 0.6s ease-in-out;
 }
 
 .toggleLeft {
-    top: -100%;
+    top: 0;
     left: 0;
+    transform: translate(0, -100%);
+}
+
+.toggleLeftActive {
+    transform: translate(100%, 0);
 }
 
 .toggleRight {
     top: 0;
-    left: 50%;
+    left: 0;
+    transform: translate(100%, 0);
 }
 
 .toggleRightActive {
-    top: 100%;
-    left: 100%;
+    transform: translate(200%, 100%);
 }
 
-.switchPage {
+.togglePanel {
     width: 100%;
+}
+
+.toggleElements {
+    cursor: pointer;
 }

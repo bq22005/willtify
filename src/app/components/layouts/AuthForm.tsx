@@ -1,9 +1,16 @@
+import { useState } from "react";
 import styles from "./AuthForm.module.css";
 
 export default function AuthForm() {
+    const [isSignUp, setIsSignUp] = useState(false);
+
+    const handleToggle = () => {
+        setIsSignUp((prev) => !prev);
+    };
+
     return (
         <div className={styles.authForm}>
-            <div className={styles.signInFormContainer}>
+            <div className={isSignUp ? styles.signInFormContainer : styles.signInFormContainerActive}>
                 <form>
                     <h1 className={styles.formTitle}>Sign In</h1>
                     <div className={styles.socialIcons}></div>
@@ -12,7 +19,7 @@ export default function AuthForm() {
                     <button type="submit">ログイン</button>
                 </form>
             </div>
-            <div className={styles.signUpFormContainer}>
+            <div className={isSignUp ? styles.signUpFormContainer : styles.signUpFormContainerActive}>
                 <form>
                     <h1 className={styles.formTitle}>Sign Up</h1>
                     <div className={styles.socialIcons}></div>
@@ -21,18 +28,18 @@ export default function AuthForm() {
                     <button type="submit">サインアップ</button>
                 </form>
             </div>
-            <div className={styles.toggleLeft}>
-                <div className={styles.switchPage}>
+            <div className={isSignUp ? styles.toggleLeft : styles.toggleLeftActive}>
+                <div className={styles.togglePanel}>
                     <h1 className={styles.toggleTitle}>Hi, there!</h1>
-                    <p>...or account already exist?</p>
-                    <span className={styles.switchPage}>ログイン</span>
+                    <p>...or returning user?</p>
+                    <span onClick={handleToggle} className={styles.toggleElements}>ログイン</span>
                 </div>
             </div>
-            <div className={styles.toggleRight}>
-                <div className={styles.switchPage}>
+            <div className={isSignUp ? styles.toggleRight : styles.toggleRightActive}>
+                <div className={styles.togglePanel}>
                     <h1 className={styles.toggleTitle}>Welcome, back!</h1>
-                    <p>...or first visit?</p>
-                    <span className={styles.switchPage}>サインアップ</span>
+                    <p>...or looking to sign up?</p>
+                    <span onClick={handleToggle} className={styles.toggleElements}>サインアップ</span>
                 </div>
             </div>
         </div>

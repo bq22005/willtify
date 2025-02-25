@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./page.module.css";
 import AuthForm from "@/app/components/layouts/AuthForm";
 
