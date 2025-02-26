@@ -10,7 +10,7 @@
 
 .signInFormContainer, .signUpFormContainer, .signInFormContainerActive, .signUpFormContainerActive {
     position: absolute;
-    padding: 10px 20px;
+    padding: 10px 40px;
     width: 50%;
     height: 100%;
     display: flex;
@@ -39,18 +39,26 @@
     transform: translate(0, 0);
 }
 
-.formTitle {
+.formTitle, .toggleTitle {
     margin: 30px 0;
 }
 
 .signInFormContainer input ,.signUpFormContainer input, .signInFormContainerActive input ,.signUpFormContainerActive input {
-    margin-bottom: 10px;
+    padding: 10px 15px;
+    margin: 10px 0;
     width: 100%;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+}
+
+.signInFormContainer input:focus ,.signUpFormContainer input:focus, .signInFormContainerActive input:focus ,.signUpFormContainerActive input:focus {
+    outline: none;
 }
 
 .toggleLeft, .toggleRight, .toggleLeftActive, .toggleRightActive {
     position: absolute;
-    padding: 20px 0;
     width: 50%;
     height: 100%;
     display: flex;
@@ -81,8 +89,19 @@
 
 .togglePanel {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.toggleElements {
+.toggleBtn {
+    padding: 10px 15px;
+    margin: 20px 0;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 8px;
     cursor: pointer;
 }

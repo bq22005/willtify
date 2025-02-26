@@ -1,5 +1,6 @@
-import { useState } from "react";
 import styles from "./AuthForm.module.css";
+import { useState } from "react";
+import Button from "@/app/components/elements/Button";
 
 export default function AuthForm() {
     const [isSignUp, setIsSignUp] = useState(false);
@@ -16,7 +17,7 @@ export default function AuthForm() {
                     <div className={styles.socialIcons}></div>
                     <input type="text" placeholder="username" required />
                     <input type="password" placeholder="password" required />
-                    <button type="submit">ログイン</button>
+                    <Button label="ログイン" />
                 </form>
             </div>
             <div className={isSignUp ? styles.signUpFormContainer : styles.signUpFormContainerActive}>
@@ -25,21 +26,21 @@ export default function AuthForm() {
                     <div className={styles.socialIcons}></div>
                     <input type="text" placeholder="username" required />
                     <input type="password" placeholder="password" required />
-                    <button type="submit">サインアップ</button>
+                    <Button label="サインアップ" />
                 </form>
             </div>
             <div className={isSignUp ? styles.toggleLeft : styles.toggleLeftActive}>
                 <div className={styles.togglePanel}>
                     <h1 className={styles.toggleTitle}>Hi, there!</h1>
                     <p>...or returning user?</p>
-                    <span onClick={handleToggle} className={styles.toggleElements}>ログイン</span>
+                    <button onClick={handleToggle} className={styles.toggleBtn}>ログイン</button>
                 </div>
             </div>
             <div className={isSignUp ? styles.toggleRight : styles.toggleRightActive}>
                 <div className={styles.togglePanel}>
                     <h1 className={styles.toggleTitle}>Welcome, back!</h1>
                     <p>...or looking to sign up?</p>
-                    <span onClick={handleToggle} className={styles.toggleElements}>サインアップ</span>
+                    <button onClick={handleToggle} className={styles.toggleBtn}>サインアップ</button>
                 </div>
             </div>
         </div>
