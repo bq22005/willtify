@@ -29,18 +29,20 @@ export default function AuthForm() {
                     <Button label="サインアップ" />
                 </form>
             </div>
-            <div className={isSignUp ? styles.toggleLeft : styles.toggleLeftActive}>
-                <div className={styles.togglePanel}>
-                    <h1 className={styles.toggleTitle}>Hi, there!</h1>
-                    <p>...or returning user?</p>
-                    <button onClick={handleToggle} className={styles.toggleBtn}>ログイン</button>
+            <div className={styles.toggle}>
+                <div className={isSignUp ? styles.toggleLeft : styles.toggleLeftActive}>
+                    <div className={styles.togglePanel}>
+                        <h1 className={styles.toggleTitle}>Hi, there!</h1>
+                        <p>...or returning user?</p>
+                        <button onClick={handleToggle} className={styles.toggleBtn}>ログイン</button>
+                    </div>
                 </div>
-            </div>
-            <div className={isSignUp ? styles.toggleRight : styles.toggleRightActive}>
-                <div className={styles.togglePanel}>
-                    <h1 className={styles.toggleTitle}>Welcome, back!</h1>
-                    <p>...or looking to sign up?</p>
-                    <button onClick={handleToggle} className={styles.toggleBtn}>サインアップ</button>
+                <div className={isSignUp ? styles.toggleRight : styles.toggleRightActive}>
+                    <div className={styles.togglePanel}>
+                        <h1 className={styles.toggleTitle}>Welcome, back!</h1>
+                        <p>...or looking to sign up?</p>
+                        <button onClick={handleToggle} className={styles.toggleBtn}>サインアップ</button>
+                    </div>
                 </div>
             </div>
         </div>

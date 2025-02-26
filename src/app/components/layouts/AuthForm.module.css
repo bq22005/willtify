@@ -3,8 +3,7 @@
     margin: 0 auto;
     width: 80%;
     height: 500px;
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(247,255,245,1) 59%, rgba(211,252,235,1) 100%);
+    background-color: #fff;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     overflow: hidden;
@@ -28,13 +27,13 @@
 }
 
 .signInFormContainerActive {
-    transform: translate(-100%, -100%);
+    transform: translate(-100%, 0);
 }
 
 .signUpFormContainer {
     top: 0;
     left: 0;
-    transform: translate(100%, 100%);
+    transform: translate(0, 100%);
 }
 
 .signUpFormContainerActive {
@@ -59,34 +58,41 @@
     outline: none;
 }
 
+.toggle {
+    position: relative;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background-color: #2faf87;
+    border-radius: 80px 0 0 20px;
+}
+
 .toggleLeft, .toggleRight, .toggleLeftActive, .toggleRightActive {
     position: absolute;
-    width: 50%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     text-align: center;
     transition: all 0.6s ease-in-out;
+    color: #fff;
 }
 
 .toggleLeft {
-    top: 0;
-    left: 0;
     transform: translate(0, -100%);
 }
 
 .toggleLeftActive {
-    transform: translate(100%, 0);
+    transform: translate(0, 0);
 }
 
 .toggleRight {
-    top: 0;
-    left: 0;
-    transform: translate(100%, 0);
+    transform: translate(0, 0);
 }
 
 .toggleRightActive {
-    transform: translate(200%, 100%);
+    transform: translate(100%, 0);
 }
 
 .togglePanel {
@@ -102,8 +108,9 @@
     padding: 10px 15px;
     margin: 20px 0;
     font-size: 14px;
-    background-color: #fff;
-    border: 1px solid #000;
+    color: #fff;
+    background-color: #2faf87;
+    border: 1px solid #ffffff;
     border-radius: 8px;
     cursor: pointer;
 }
