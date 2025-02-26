@@ -5,8 +5,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(247,255,245,1) 59%, rgba(211,252,235,1) 100%);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
