@@ -23,7 +23,7 @@ export default function RootLayout({
                 <header>
                     <div className={styles.container}>
                         <a href="">
-                            <img className={styles.headerLogo} src="/next.svg" alt="" />
+                            <img className={styles.headerLogo} src="/willtify-logo.png" alt="" />
                         </a>
                         <nav className={styles.headerNav}>
                             <ul className={styles.navList}>

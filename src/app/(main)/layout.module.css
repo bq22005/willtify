@@ -6,11 +6,11 @@
     border-radius: 0 0 10px 10px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .headerLogo {
-    width: 14vw;
+    width: 19vw;
 }
 
 .navList {
