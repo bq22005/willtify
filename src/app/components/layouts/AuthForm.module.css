@@ -11,7 +11,7 @@
     overflow: hidden;
 }
 
-.signInFormContainer, .signUpFormContainer, .signInFormContainerActive, .signUpFormContainerActive {
+.signInFormContainer, .signUpFormContainer {
     position: absolute;
     padding: 10px 40px;
     width: 50%;
@@ -28,7 +28,7 @@
     transform: translate(0, 0);
 }
 
-.signInFormContainerActive {
+.signInFormContainer.active {
     transform: translate(-100%, 0);
 }
 
@@ -38,7 +38,7 @@
     transform: translate(0, 100%);
 }
 
-.signUpFormContainerActive {
+.signUpFormContainer.active {
     transform: translate(0, 0);
 }
 
@@ -46,7 +46,7 @@
     margin: 30px 0;
 }
 
-.signInFormContainer input ,.signUpFormContainer input, .signInFormContainerActive input ,.signUpFormContainerActive input {
+.signInFormContainer input ,.signUpFormContainer input {
     padding: 10px 15px;
     margin: 10px 0;
     width: 100%;
@@ -56,7 +56,7 @@
     border-radius: 8px;
 }
 
-.signInFormContainer input:focus ,.signUpFormContainer input:focus, .signInFormContainerActive input:focus ,.signUpFormContainerActive input:focus {
+.signInFormContainer input:focus ,.signUpFormContainer input:focus {
     outline: none;
 }
 
@@ -70,7 +70,7 @@
     border-radius: 80px 0 0 20px;
 }
 
-.toggleLeft, .toggleRight, .toggleLeftActive, .toggleRightActive {
+.toggleLeft, .toggleRight {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -85,7 +85,7 @@
     transform: translate(0, -100%);
 }
 
-.toggleLeftActive {
+.toggleLeft.active {
     transform: translate(0, 0);
 }
 
@@ -93,7 +93,7 @@
     transform: translate(0, 0);
 }
 
-.toggleRightActive {
+.toggleRight.active {
     transform: translate(100%, 0);
 }
 

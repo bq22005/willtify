@@ -11,7 +11,7 @@ export default function AuthForm() {
 
     return (
         <div className={styles.authForm}>
-            <div className={isSignUp ? styles.signInFormContainer : styles.signInFormContainerActive}>
+            <div className={`${styles.signInFormContainer} ${isSignUp ? styles.active : ""}`}>
                 <form>
                     <h1 className={styles.formTitle}>Sign In</h1>
                     <div className={styles.socialIcons}></div>
@@ -20,7 +20,7 @@ export default function AuthForm() {
                     <Button label="ログイン" />
                 </form>
             </div>
-            <div className={isSignUp ? styles.signUpFormContainer : styles.signUpFormContainerActive}>
+            <div className={`${styles.signUpFormContainer} ${isSignUp ? styles.active : ""}`}>
                 <form>
                     <h1 className={styles.formTitle}>Sign Up</h1>
                     <div className={styles.socialIcons}></div>
@@ -30,14 +30,14 @@ export default function AuthForm() {
                 </form>
             </div>
             <div className={styles.toggle}>
-                <div className={isSignUp ? styles.toggleLeft : styles.toggleLeftActive}>
+                <div className={`${styles.toggleLeft} ${isSignUp ? styles.active : ""}`}>
                     <div className={styles.togglePanel}>
                         <h1 className={styles.toggleTitle}>Hi, there!</h1>
                         <p>...or returning user?</p>
                         <button onClick={handleToggle} className={styles.toggleBtn}>ログイン</button>
                     </div>
                 </div>
-                <div className={isSignUp ? styles.toggleRight : styles.toggleRightActive}>
+                <div className={`${styles.toggleRight} ${isSignUp ? styles.active : ""}`}>
                     <div className={styles.togglePanel}>
                         <h1 className={styles.toggleTitle}>Welcome, back!</h1>
                         <p>...or looking to sign up?</p>
