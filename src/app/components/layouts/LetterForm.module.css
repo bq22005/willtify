@@ -8,8 +8,8 @@
 .envelope {
     margin: 0 auto;
     max-width: 900px;
-    height: 75vw;
-    max-height: 600px;
+    height: 65vw;
+    max-height: 520px;
     transform: rotate(-20deg);
 }
 

@@ -1,7 +1,14 @@
 import styles from "./LetterForm.module.css";
 import Button from "@/app/components/elements/Button";
+import { useState } from "react";
 
 export default function LetterForm() {
+    const [isSend, setIsSend] = useState(false);
+
+    const handleSendLetter = () => {
+        setIsSend((prev) => !prev);
+    };
+
     return (
         <div className={styles.letterForm}>
             <div className={styles.envelope}>
@@ -12,7 +19,7 @@ export default function LetterForm() {
                     </div>
                 </div>
             </div>
-            <Button label="送信する" />
+            <Button onClick={handleSendLetter} label="送信する" />
         </div>
     );
 }
