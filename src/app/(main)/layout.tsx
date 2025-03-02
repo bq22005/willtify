@@ -22,7 +22,7 @@ export default function RootLayout({
             <body className={`${MPlusRounded1c.className}`}>
                 <header>
                     <div className={styles.container}>
-                        <a href="">
+                        <a className={styles.imageContainer} href="">
                             <img className={styles.headerLogo} src="/willtify-logo.png" alt="" />
                         </a>
                         <nav className={styles.headerNav}>

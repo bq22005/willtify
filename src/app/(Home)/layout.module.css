@@ -9,8 +9,13 @@
     justify-content: space-between;
 }
 
+.imageContainer {
+    height: 100%;
+}
+
 .headerLogo {
-    width: 19vw;
+    margin: 0 30%;
+    height: 100%;
 }
 
 .navList {
