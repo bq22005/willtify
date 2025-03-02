@@ -1,10 +1,10 @@
 .btn {
-    padding: 10px 15px;
-    margin: 20px 0;
-    font-size: clamp(0.4rem, calc(0.4rem + 0.9vw), 1.2rem);
-    color: #fff;
-    background-color: #2faf87;
-    border: 1px solid #e2e2e2;
-    border-radius: 8px;
-    cursor: pointer;
+  padding: 10px 15px;
+  margin: 20px 0;
+  font-size: clamp(0.4rem, calc(0.4rem + 0.9vw), 1.2rem);
+  color: #fff;
+  background-color: #2faf87;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  cursor: pointer;
 }

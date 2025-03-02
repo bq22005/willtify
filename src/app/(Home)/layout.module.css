@@ -1,29 +1,29 @@
 .container {
-    width: 100%;
-    height: 70px;
-    background-color: #fff;
-    border-bottom: 1px solid #e2e2e2;
-    border-radius: 0 0 10px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+  border-bottom: 1px solid #e2e2e2;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .imageContainer {
-    height: 100%;
+  height: 100%;
 }
 
 .headerLogo {
-    margin: 0 30%;
-    height: 100%;
+  margin: 0 30%;
+  height: 100%;
 }
 
 .navList {
-    display: flex;
+  display: flex;
 }
 
 .navItem {
-    margin: 0 4vw;
-    list-style: none;
-    font-size: clamp(0.5rem, calc(0.7rem + 1vw), 1.2rem);
+  margin: 0 4vw;
+  list-style: none;
+  font-size: clamp(0.5rem, calc(0.7rem + 1vw), 1.2rem);
 }

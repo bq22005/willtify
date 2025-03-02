@@ -4,25 +4,25 @@ import "./globals.css";
 import styles from "./layout.module.css";
 
 const MPlusRounded1c = M_PLUS_Rounded_1c({
-    weight: "400",
-    subsets: ["latin"],
+  weight: "400",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-    title: "willtify",
-    description: "未来の誰かにメッセージを届けよう。",
+  title: "willtify",
+  description: "未来の誰かにメッセージを届けよう。",
 };
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
+  return (
     <html lang="ja">
-        <body className={`${MPlusRounded1c.className}`}>
-            {children}
-        </body>
+      <body className={`${MPlusRounded1c.className}`}>
+        {children}
+      </body>
     </html>
-    );
+  );
 }
