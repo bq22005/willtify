@@ -11,12 +11,11 @@ export default function LetterForm() {
 
   return (
     <div className={styles.letterForm}>
-      <div className={styles.envelope}>			
-				<div className={styles.triangle}></div>
-        <div className={styles.square}>
-          <div className={styles.letter}>
-            <textarea className={styles.sentence} placeholder="未来にメッセージを送ろう...!"></textarea>
-          </div>
+      <div className={`${styles.envelope} ${isSend ? styles.active : ""}`}>
+				<div className={`${styles.triangle} ${isSend ? styles.active : ""}`}></div>
+        <div className={styles.square}></div>
+        <div className={`${styles.letter} ${isSend ? styles.active : ""}`}>
+          <textarea className={styles.sentence} placeholder="未来にメッセージを送ろう...!"></textarea>
         </div>
       </div>
       <Button onClick={handleSendLetter} label="送信する" />
