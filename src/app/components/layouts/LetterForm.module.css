@@ -6,7 +6,7 @@
 }
 
 .envelope {
-  margin: 0 auto;
+  margin: 90px auto 0 auto;
   max-width: 900px;
   height: 75vw;
   max-height: 600px;
@@ -47,7 +47,7 @@
   max-height: 300px;
   background-color: #fdfdfd;
   border-radius: 15px;
-  transform: rotate(20deg) translate(-50%, 0);
+  transform: rotate(20deg) translate(-50%, 30%);
   z-index: 4;
 }
 
@@ -60,9 +60,12 @@
     transform: rotate(-20deg) translate(0, 0);
   }
   20% {
-    transform: rotate(0deg) translate(0, 100px);
+    transform: rotate(0deg) translate(0, 25%);
   }
-  80% {
+  60% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  90% {
     transform: rotate(0deg) translate(0, 0);
   }
   100% {
@@ -79,11 +82,15 @@
     clip-path: polygon(0 50%, 50% 0, 100% 50%);
     z-index: 1;
   }
-  80% {
+  60% {
     clip-path: polygon(0 50%, 50% 0, 100% 50%);
     z-index: 2;
   }
+  80% {
+    z-index: 4;
+  }
   90% {
+    clip-path: polygon(0 50%, 50% 100%, 100% 50%);
     z-index: 4;
   }
   100% {
@@ -98,14 +105,23 @@
 
 @keyframes moveLetter {
   0% {
-    transform: rotate(20deg) translate(-50%, 0);
+    transform: rotate(20deg) translate(-50%, 30%);
     z-index: 4;
   }
   20% {
-    transform: rotate(0deg) translate(-50%, -400px);
+    transform: rotate(0deg) translate(-50%, -120%);
+    z-index: 4;
+  }
+  21% {
+    transform: rotate(0deg) translate(-50%, -120%);
     z-index: 2;
   }
-  80% {
+  60% {
+    top: min(16vw, 144px);
+    transform: rotate(0deg) translate(-50%, 0);
+    z-index: 2;
+  }
+  90% {
     top: min(16vw, 144px);
     transform: rotate(0deg) translate(-50%, 0);
     z-index: 2;
@@ -121,7 +137,7 @@
   padding: 15px 15px;
   width: 100%;
   height: 100%;
-  font-size: clamp(0.5rem, calc(0.7rem + 1vw), 1.2rem);
+  font-size: clamp(0.5rem, calc(0.6rem + 1.1vw), 1.2rem);
   border: 3px dotted #ff5353;
   resize: none;
 }
