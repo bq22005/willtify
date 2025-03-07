@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { M_PLUS_Rounded_1c } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import styles from "./layout.module.css";
 
 const MPlusRounded1c = M_PLUS_Rounded_1c({
