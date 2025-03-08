@@ -15,10 +15,10 @@ export default function LetterForm() {
 				<div className={`${styles.triangle} ${isSend ? styles.active : ""}`}></div>
         <div className={styles.square}></div>
         <div className={`${styles.letter} ${isSend ? styles.active : ""}`}>
-          <textarea className={styles.sentence} placeholder="未来にメッセージを送ろう...!"></textarea>
+          <textarea className={styles.sentence} readOnly={isSend} placeholder="未来にメッセージを送ろう...!"></textarea>
         </div>
       </div>
-      <Button onClick={handleSendLetter} label="送信する" />
+      <Button onClick={handleSendLetter} disabled={isSend} label="送信する" />
     </div>
   );
 }
