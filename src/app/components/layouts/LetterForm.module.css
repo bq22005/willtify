@@ -1,8 +1,17 @@
 .letterForm {
   width: 100%;
-  height: 800px;
+  height: 900px;
   text-align: center;
   overflow: hidden;
+}
+
+.status {
+  margin-top: 50px;
+}
+
+.required {
+  margin: 10px 0;
+  color: #ff5353;
 }
 
 .envelope {
@@ -20,6 +29,7 @@
   width: 64%;
   aspect-ratio: 2/1;
   background-color: #e6e6e6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
   transform: translate(-50%, 0);
   clip-path: polygon(0 50%, 50% 0, 100% 50%);
   z-index: 1;
@@ -33,6 +43,8 @@
   height: 40vw;
   max-height: 300px;
   background-color: #f0f0f0;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
   transform: translate(-50%, 0);
   z-index: 3;
 }
@@ -47,6 +59,7 @@
   max-height: 300px;
   background-color: #fdfdfd;
   border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   transform: rotate(20deg) translate(-50%, 30%);
   z-index: 4;
 }
@@ -105,12 +118,14 @@
 .letter.active {
   animation: moveLetter 4s;
   top: min(16vw, 144px);
+  box-shadow: none;
   transform: rotate(0deg) translate(-50%, 0);
   z-index: 2;
 }
 
 @keyframes moveLetter {
   0% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     transform: rotate(20deg) translate(-50%, 30%);
     z-index: 4;
   }
@@ -124,6 +139,7 @@
   }
   60% {
     top: min(16vw, 144px);
+    box-shadow: none;
     transform: rotate(0deg) translate(-50%, 0);
     z-index: 2;
   }
