@@ -1,0 +1,38 @@
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  height: 250px;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: space-around;
+}
+
+.user {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userIcon {
+  height: 70%;
+}
+
+.sentenceContainer {
+  padding: 15px;
+  width: 65%;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.sentence {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  font-size: clamp(0.5rem, calc(0.6rem + 1.1vw), 1.2rem);
+  border: 3px dotted #ff5353;
+  resize: none;
+}
