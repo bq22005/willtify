@@ -2,7 +2,7 @@ import styles from "./Button.module.css";
 
 type ButtonProps = {
   onClick?: () => void;
-  disabled: boolean;
+  disabled?: boolean;
   label: string;
 };
 
