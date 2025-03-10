@@ -19,6 +19,7 @@
 
 .userIcon {
   height: 70%;
+  border-radius: 50%;
 }
 
 .username {
