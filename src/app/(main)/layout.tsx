@@ -30,7 +30,7 @@ export default function RootLayout({
               <ul className={styles.navList}>
                 <li className={styles.navItem}><a href="/">Home</a></li>
                 <li className={styles.navItem}><a href="/letter">Send</a></li>
-                <li className={styles.navItem}><a href="/">Letter box</a></li>
+                <li className={styles.navItem}><a href="/letterbox">Letter box</a></li>
               </ul>
             </nav>
           </div>
