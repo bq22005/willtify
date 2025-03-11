@@ -32,7 +32,6 @@ export default function LetterBox() {
 
   return (
     <div className={styles.page}>
-        <h1>Letter Box</h1>
         {myLetters.map((letter) => (
           <LetterListLayout
             key={letter.id}
