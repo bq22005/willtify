@@ -15,7 +15,7 @@ export const fetchOtherLetters = async () => {
     const response = await axios.get(`${API_URL}/otherletters`);
     return response.data;
   } catch (error) {
-    console.error("Failed to fetch other letters.");
+    console.error("Failed to fetch other letters.", error);
     return [];
   }
 }
