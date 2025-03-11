@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 const defaultLetter: MyLetter = {
   id: 0,
+  letterid: 0,
   username: "user",
   icon: "/user_default.png",
   date: "xxxx年xx月xx日",
@@ -36,6 +37,7 @@ export default function LetterBox() {
           <LetterListLayout
             key={letter.id}
             id={letter.id}
+            letterid={letter.letterid}
             username={letter.username}
             icon={letter.icon}
             date={letter.date}

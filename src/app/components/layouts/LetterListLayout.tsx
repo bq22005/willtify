@@ -1,7 +1,7 @@
 import styles from "./LetterListLayout.module.css";
 import { OtherLetter } from "@/app/lib/fetchOtherLetters";
 
-export default function LetterListLayout({id, username, icon, date, text}: OtherLetter) {
+export default function LetterListLayout({id, letterid, username, icon, date, text}: OtherLetter) {
   return (
     <div className={styles.letterListLayout}>
       <div className={styles.container}>

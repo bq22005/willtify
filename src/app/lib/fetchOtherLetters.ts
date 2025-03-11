@@ -4,6 +4,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export type OtherLetter = {
   id: number;
+  letterid: number;
   username: string;
   icon: string;
   date: string;

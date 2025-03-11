@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 const defaultLetter: OtherLetter = {
   id: 0,
+  letterid: 0,
   username: "user",
   icon: "/user_default.png",
   date: "xxxx年xx月xx日",
@@ -14,7 +15,7 @@ const defaultLetter: OtherLetter = {
 }
 
 export default function Home() {
-  const [otherLetters, setOtherLetters] = useState<OtherLetter[]>([defaultLetter]);
+  const [otherLetters, setOtherLetters] = useState<OtherLetter[]>([]);
 
   useEffect(() => {
     const fetchLetters = async () => {
@@ -37,6 +38,7 @@ export default function Home() {
         <LetterListLayout
           key={letter.id}
           id={letter.id}
+          letterid={letter.letterid}
           username={letter.username}
           icon={letter.icon}
           date={letter.date}
