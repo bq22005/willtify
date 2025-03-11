@@ -12,7 +12,7 @@ export type OtherLetter = {
 
 export const fetchOtherLetters = async () => {
   try {
-    const response = await axios.get(`${API_URL}/otherletter`);
+    const response = await axios.get(`${API_URL}/otherletters`);
     return response.data;
   } catch (error) {
     console.error("Failed to fetch other letters.");
