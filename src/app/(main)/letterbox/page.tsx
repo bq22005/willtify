@@ -10,7 +10,7 @@ const defaultLetter: MyLetter = {
   username: "user",
   icon: "/user_default.png",
   date: "xxxx年xx月xx日",
-  text: "最初のメッセージを作成しよう.",
+  text: "ここに作成した手紙が表示されます.",
 }
 
 export default function LetterBox() {
