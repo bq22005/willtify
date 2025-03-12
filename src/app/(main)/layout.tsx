@@ -31,6 +31,7 @@ export default function RootLayout({
                 <li className={styles.navItem}><a href="/">Home</a></li>
                 <li className={styles.navItem}><a href="/letter">Send</a></li>
                 <li className={styles.navItem}><a href="/letterbox">Letter box</a></li>
+                <li className={styles.navItem}><a href="/logout">Logout</a></li>
               </ul>
             </nav>
           </div>

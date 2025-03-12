@@ -6,7 +6,7 @@ type ButtonProps = {
   label: string;
 };
 
-export default function Button(props: ButtonProps) {
+export function Button(props: ButtonProps) {
   const onClick = props.onClick;
   const disabled = props.disabled;
   const label = props.label;
