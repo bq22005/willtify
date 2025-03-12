@@ -1,5 +1,7 @@
+"use client";
+
 import styles from "./LetterForm.module.css";
-import Button from "@/app/components/elements/Button";
+import { Button} from "@/app/components/elements/Button";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
