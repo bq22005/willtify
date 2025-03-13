@@ -23,7 +23,7 @@ export async function Avator() {
           src={session.user.image}
           alt={session.user.name ?? ""}
           />
-          <p>{session.user.name}</p>
+          <p className={styles.userName}>{session.user.name}</p>
         </div>
       )}
     </div>
