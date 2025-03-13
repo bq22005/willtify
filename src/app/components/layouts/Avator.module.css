@@ -1,0 +1,23 @@
+.avator {
+  margin: 5%;
+  width: 15%;
+  height: 100%;
+}
+
+.userInfo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.signin {
+  padding: 7px 5px;
+  border: 1px solid #818181;
+  border-radius: 15px;
+}
+
+.avatorImg {
+  height: 70%;
+  border-radius: 50%;
+}
