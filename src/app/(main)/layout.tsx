@@ -3,7 +3,7 @@ import { M_PLUS_Rounded_1c } from "next/font/google";
 import "@/app/globals.css";
 import styles from "./layout.module.css";
 import { Avator } from "../components/layouts/Avator";
-import { ExpireUserBtn } from "@/app/components/elements/AuthUserButton";
+import { ExpireUserBtn } from "@/app/components/elements/AuthUserBtn";
 
 const MPlusRounded1c = M_PLUS_Rounded_1c({
   weight: "400",

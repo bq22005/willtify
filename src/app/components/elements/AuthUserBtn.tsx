@@ -1,11 +1,11 @@
-import styles from "./AuthUserButton.module.css";
+import styles from "./AuthUserBtn.module.css";
 import { signIn, signOut } from "@/auth";
 
-type AuthUserButtonProps = {
+type AuthUserBtnProps = {
   provider: string;
 }
 
-export function AuthUserBtn({ provider }: AuthUserButtonProps) {
+export function AuthUserBtn({ provider }: AuthUserBtnProps) {
   return (
     <form action={async () => {
       "use server";

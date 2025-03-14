@@ -1,11 +1,12 @@
 import NextAuth, { NextAuthConfig } from "next-auth";
-import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
+import GitHub from "next-auth/providers/github";
 
 export const config: NextAuthConfig = {
   providers: [
-    GitHub,
     Google,
+    GitHub,
+    
   ],
   basePath: "/api/auth",
   callbacks: {
