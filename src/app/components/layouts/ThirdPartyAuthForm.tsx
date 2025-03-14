@@ -5,6 +5,7 @@ export default function ThirdPartyAuthForm() {
   return (
     <div className={styles.authForm}>
       <AuthUserBtn provider="github" />
+      <AuthUserBtn provider="google" />
     </div>
   );
 }
