@@ -13,11 +13,11 @@
 
 .user {
   height: 100%;
+  font-size: clamp(0.5rem, calc(0.6rem + 1.1vw), 1.2rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: clamp(0.5rem, calc(0.6rem + 1.1vw), 1.2rem);
 }
 
 .userIcon {
