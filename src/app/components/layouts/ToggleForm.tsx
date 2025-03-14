@@ -35,14 +35,14 @@ export default function ToggleForm() {
         <div className={`${styles.toggleLeft} ${isSignUp ? styles.active : ""}`}>
           <div className={styles.togglePanel}>
             <h1 className={styles.toggleTitle}>Hi, there!</h1>
-            <p>...or returning user?</p>
+            <p className={styles.toggleText}>...or returning user?</p>
             <button onClick={handleToggle} className={styles.toggleBtn}>ログイン</button>
           </div>
         </div>
         <div className={`${styles.toggleRight} ${isSignUp ? styles.active : ""}`}>
           <div className={styles.togglePanel}>
             <h1 className={styles.toggleTitle}>Welcome, back!</h1>
-            <p>...or looking to sign up?</p>
+            <p className={styles.toggleText}>...or looking to sign up?</p>
             <button onClick={handleToggle} className={styles.toggleBtn}>サインアップ</button>
           </div>
         </div>
