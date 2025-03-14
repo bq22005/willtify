@@ -3,6 +3,7 @@ import { M_PLUS_Rounded_1c } from "next/font/google";
 import "@/app/globals.css";
 import styles from "./layout.module.css";
 import { Avator } from "../components/layouts/Avator";
+import { ExpireUserBtn } from "@/app/components/elements/AuthUserButton";
 
 const MPlusRounded1c = M_PLUS_Rounded_1c({
   weight: "400",
@@ -35,7 +36,7 @@ export default function RootLayout({
                 <li className={styles.navItem}><a href="/">Home</a></li>
                 <li className={styles.navItem}><a href="/letter">Send</a></li>
                 <li className={styles.navItem}><a href="/letterbox">Letter box</a></li>
-                <li className={styles.navItem}><a href="/logout">Logout</a></li>
+                <li><ExpireUserBtn /></li>
               </ul>
             </nav>
           </div>
