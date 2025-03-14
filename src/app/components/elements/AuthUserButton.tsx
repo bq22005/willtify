@@ -1,4 +1,3 @@
-import { redirect } from "next/dist/server/api-utils";
 import styles from "./AuthUserButton.module.css";
 import { signIn, signOut } from "@/auth";
 
