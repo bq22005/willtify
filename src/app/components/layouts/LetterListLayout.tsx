@@ -1,19 +1,19 @@
 import styles from "./LetterListLayout.module.css";
-import { OtherLetter } from "@/app/lib/fetchOtherLetters";
+import { Letter } from "@/app/lib/fetchLetters";
 
-export default function LetterListLayout({id, letterid, username, icon, date, text}: OtherLetter) {
+export default function LetterListLayout({id, auther, content, notifyAt}: Letter) {
   return (
     <div className={styles.letterListLayout}>
       <div className={styles.container}>
         <a href="">
           <div className={styles.user}>
-            <img className={styles.userIcon} src={icon}/>
-            <p className={styles.username}>{username}</p>
-            <p className={styles.date}>{date}</p>
+            <img className={styles.userIcon} src={auther.icon}/>
+            <p className={styles.username}>{auther.username}</p>
+            <p className={styles.date}>{notifyAt}</p>
           </div>
         </a>
         <div className={styles.sentenceContainer}>
-          <p className={styles.sentence} >{text}</p>
+          <p className={styles.sentence} >{content}</p>
         </div>
       </div>
     </div>

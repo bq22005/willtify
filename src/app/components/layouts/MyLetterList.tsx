@@ -2,20 +2,18 @@
 
 import styles from "./MyLetterList.module.css";
 import LetterListLayout from "@/app/components/layouts/LetterListLayout";
-import { MyLetter, fetchMyLetters } from "@/app/lib/fetchMyLetters";
+import { Letter, fetchMyLetters } from "@/app/lib/fetchLetters";
 import { useEffect, useState } from "react";
 
-const defaultLetter: MyLetter = {
+const defaultLetter: Letter = {
   id: 0,
-  letterid: 0,
-  username: "user",
-  icon: "/user_default.png",
-  date: "xxxx年xx月xx日",
-  text: "ここに作成した手紙が表示されます.",
+  auther: { id: 0, username: "user", icon: "/user_default.png"},
+  content: "サンプルレター",
+  notifyAt: "xxxx年xx月xx日",
 }
 
 export default function MyLetterList() {
-  const [myLetters, setMyLetters] = useState<MyLetter[]>([]);
+  const [myLetters, setMyLetters] = useState<Letter[]>([]);
 
   useEffect(() => {
     const fetchLetters = async () => {
@@ -37,11 +35,9 @@ export default function MyLetterList() {
           <LetterListLayout
             key={letter.id}
             id={letter.id}
-            letterid={letter.letterid}
-            username={letter.username}
-            icon={letter.icon}
-            date={letter.date}
-            text={letter.text}
+            auther={letter.auther}
+            content={letter.content}
+            notifyAt={letter.notifyAt}
           />
         ))}
     </div>

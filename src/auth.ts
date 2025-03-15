@@ -6,7 +6,6 @@ export const config: NextAuthConfig = {
   providers: [
     Google,
     GitHub,
-    
   ],
   basePath: "/api/auth",
   callbacks: {
