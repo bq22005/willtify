@@ -1,7 +1,8 @@
 "use client";
 
 import styles from "./LetterForm.module.css";
-import { Button} from "@/app/components/elements/Button";
+import NotifyForm from "@/app/components/layouts/NotifyForm";
+import { Button } from "@/app/components/elements/Button";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -52,6 +53,7 @@ export default function LetterForm() {
           ></textarea>
         </div>
       </div>
+      <NotifyForm />
       <Button onClick={handleSendLetter} disabled={isButtonDisabled} label={buttonLabel} />
     </div>
   );
