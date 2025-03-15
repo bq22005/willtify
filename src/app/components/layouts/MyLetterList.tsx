@@ -3,7 +3,8 @@
 import styles from "./MyLetterList.module.css";
 import LetterListLayout from "@/app/components/layouts/LetterListLayout";
 import { Letter, fetchMyLetters } from "@/app/lib/fetchLetters";
-import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useEffect, useMemo, useState } from "react";
 
 const defaultLetter: Letter = {
   id: 0,
@@ -14,6 +15,16 @@ const defaultLetter: Letter = {
 
 export default function MyLetterList() {
   const [myLetters, setMyLetters] = useState<Letter[]>([]);
+  const { data: session, status } = useSession();
+
+  const autherInfo = useMemo(
+    () => ({
+      id: session?.user?.id ? Number(session.user.id) : 0,
+      username: session?.user?.name ?? "user",
+      icon: session?.user?.image ?? "/user_default.png",
+    }),
+    [session]
+  );
 
   useEffect(() => {
     const fetchLetters = async () => {
@@ -35,7 +46,7 @@ export default function MyLetterList() {
           <LetterListLayout
             key={letter.id}
             id={letter.id}
-            auther={letter.auther}
+            auther={autherInfo}
             content={letter.content}
             notifyAt={letter.notifyAt}
           />
