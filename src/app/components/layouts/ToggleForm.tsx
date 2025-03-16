@@ -26,6 +26,7 @@ export default function ToggleForm() {
         <h1 className={styles.formTitle}>Sign Up</h1>
         <form>
           <div className={styles.socialIcons}></div>
+          <input type="text" placeholder="email" required />
           <input type="text" placeholder="username" required />
           <input type="password" placeholder="password" required />
           <Button label="サインアップ" />
