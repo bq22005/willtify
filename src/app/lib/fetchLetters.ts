@@ -7,12 +7,21 @@ export type Letter = {
   notifyAt: string;
 }
 
-export const fetchMyLetters = async ()=> {
+export const fetchMyLetters = async () => {
   try {
     const response = await axios.get("api/letters");
     return response.data;
   } catch (error) {
-    throw new Error("Failed to fetch letters");
+    throw new Error("Failed to fetch my letters");
+  }
+};
+
+export const fetchOtherLetters = async () => {
+  try {
+    const response = await axios.get("api/recommends");
+    return response.data;
+  } catch (error) {
+    throw new Error("Failed to fetch other letters");
   }
 };
 
