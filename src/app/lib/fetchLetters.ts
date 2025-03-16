@@ -7,14 +7,10 @@ export type Letter = {
   notifyAt: string;
 }
 
-export const fetchMyLetters = async () => {
-  try {
-    const response = await axios.get("/api/letters");
-    return response.data;
-  } catch (error) {
-    console.error("Failed to fetch my letters.", error);
-    return [];
-  }
+export const fetchMyLetters = async ()=> {
+  const res = await fetch("api/letters");
+  if (!res.ok) throw new Error("Failed to fetch letters");
+  return res.json();
 };
 
 export const postLetter = async (autherId: number, content: string, notifyAt: Date) => {

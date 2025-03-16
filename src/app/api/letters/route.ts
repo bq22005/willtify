@@ -1,12 +1,34 @@
+import { auth } from "@/auth";
+import { prisma } from "@/app/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
-import { fetchLetters, createLetter } from "@/app/lib/prisma";
+import { createLetter } from "@/app/lib/prisma";
 
 export async function GET() {
+  const session = await auth();
+  if (!session?.user?.name) return NextResponse.json([], { status: 401 });
+
   try {
-    const letters = await fetchLetters();
-    return NextResponse.json(letters, { status: 200 });
+    const letters = await prisma.letter.findMany({
+      where: {
+        auther: { username: session.user.name },
+      },
+      include: {
+        auther: { select: { id: true, username: true, icon: true } },
+      },
+      orderBy: { createdAt: "desc" },
+    });
+
+    return NextResponse.json(
+      letters.map(letter => ({
+        id: letter.id,
+        auther: letter.auther,
+        content: letter.content,
+        notifyAt: letter.notifyAt.toISOString().split("T")[0],
+      }))
+    );
   } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch letters" }, { status: 500 });
+    console.error("Failed to fetch letters", error);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 

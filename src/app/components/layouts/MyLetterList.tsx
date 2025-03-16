@@ -3,41 +3,29 @@
 import styles from "./MyLetterList.module.css";
 import LetterListLayout from "@/app/components/layouts/LetterListLayout";
 import { Letter, fetchMyLetters } from "@/app/lib/fetchLetters";
-import { useSession } from "next-auth/react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const defaultLetter: Letter = {
   id: 0,
   auther: { id: 0, username: "user", icon: "/user_default.png"},
   content: "サンプルレター",
-  notifyAt: "xxxx年xx月xx日",
+  notifyAt: "xxxx-xx-xx-",
 }
 
 export default function MyLetterList() {
   const [myLetters, setMyLetters] = useState<Letter[]>([]);
-  const { data: session, status } = useSession();
-
-  const autherInfo = useMemo(
-    () => ({
-      id: session?.user?.id ? Number(session.user.id) : 0,
-      username: session?.user?.name ?? "user",
-      icon: session?.user?.image ?? "/user_default.png",
-    }),
-    [session]
-  );
 
   useEffect(() => {
-    const fetchLetters = async () => {
-      try {
-        const letterData = await fetchMyLetters();
-  
-        setMyLetters(letterData.length > 0 ? [letterData] : [defaultLetter]);
-      } catch (error) {
-        console.error("Failed to fetch my letters.", error);
+      const fetchLetters = async () => {
+        try {
+          const letterData = await fetchMyLetters();
+          setMyLetters(letterData.length > 0 ? letterData : [defaultLetter]);
+        } catch (error) {
+          console.error("Failed to fetch my letters", error);
+        }
       }
-    };
 
-    fetchLetters();
+      fetchLetters();
   }, []);
 
   return (
@@ -46,7 +34,7 @@ export default function MyLetterList() {
           <LetterListLayout
             key={letter.id}
             id={letter.id}
-            auther={autherInfo}
+            auther={letter.auther}
             content={letter.content}
             notifyAt={letter.notifyAt}
           />
