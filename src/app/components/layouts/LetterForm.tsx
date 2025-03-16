@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./LetterForm.module.css";
+import { fetchUser } from "@/app/lib/fetchUser";
 import { postLetter } from "@/app/lib/fetchLetters";
 import { Button } from "@/app/components/elements/Button";
 import { useRouter } from "next/navigation";
@@ -23,12 +24,11 @@ export default function LetterForm() {
     const fetchUserId = async () => {
       if (session?.user?.email) {
         try {
-          const response = await fetch(`/api/user/${session.user.email}`);
-          if (!response.ok) {
+          const response = await fetchUser(session.user.email);
+          if (!response) {
             throw new Error("Failed to fetch user id");
           }
-          const data = await response.json();
-          setAutherId(data.id);
+          setAutherId(response.id);
         } catch (error) {
           console.error("Error fetching user ID:", error);
           setRequiredMessage("ユーザ情報の取得に失敗しました");
