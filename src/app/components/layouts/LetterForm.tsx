@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./LetterForm.module.css";
-import NotifyForm from "@/app/components/layouts/NotifyForm";
+import { postLetter } from "@/app/lib/fetchLetters";
 import { Button } from "@/app/components/elements/Button";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -13,11 +13,16 @@ export default function LetterForm() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [buttonLabel, setButtonLabel] = useState("送信する");
   const [message, setMessage] = useState("");
+  const [notifyAt, setNotifyAt] = useState("");
   const router = useRouter();
 
-  const handleSendLetter = () => {
+  const handleSendLetter = async () => {
     if (!message.trim()) {
       setRequiredMessage("メッセージの入力は必須です!");
+      return;
+    }
+    if (!notifyAt) {
+      setRequiredMessage("通知日を設定してください!");
       return;
     }
 
@@ -26,11 +31,23 @@ export default function LetterForm() {
       setIsButtonDisabled(true);
       setRequiredMessage("");
       setSendStatus("送信中...");
-      setTimeout(() => {
-        setButtonLabel("ホームへ");
+
+      try {
+        const autherId = 1;
+        await postLetter(autherId, message, new Date(notifyAt));
+
+        setTimeout(() => {
+          setButtonLabel("ホームへ");
+          setIsButtonDisabled(false);
+          setSendStatus("送信完了!");
+        }, 4000);
+      } catch (error) {
+        console.error("Failed to send letter", error);
+        setSendStatus("送信に失敗しました");
+        setIsSend(false);
         setIsButtonDisabled(false);
-        setSendStatus("送信完了!");
-      }, 4000);
+      }
+
     } else {
       router.push("/");
     }
@@ -53,7 +70,17 @@ export default function LetterForm() {
           ></textarea>
         </div>
       </div>
-      <NotifyForm />
+      <div className={styles.notifyForm}>
+        <div className={styles.notifyFormContainer}>
+          <h3 className={styles.dateNav}>通知日:</h3>
+          <input
+            className={styles.date}
+            type="date"
+            value={notifyAt}
+            onChange={(e) => setNotifyAt(e.target.value)}
+            />
+        </div>
+      </div>
       <Button onClick={handleSendLetter} disabled={isButtonDisabled} label={buttonLabel} />
     </div>
   );

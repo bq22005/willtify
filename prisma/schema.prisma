@@ -9,13 +9,15 @@ datasource db {
 }
 
 model User {
-  id       Int      @id @default(autoincrement())
-  username String   @unique
-  email    String?  @unique
-  password String?
-  icon     String   @default("/user_default.png")
-  date     DateTime @default(now())
-  letters  Letter[]
+  id         Int      @id @default(autoincrement())
+  username   String   @unique
+  email      String?  @unique
+  password   String?
+  provider   String
+  providerId String?  @unique
+  icon       String   @default("/user_default.png")
+  createdAt  DateTime @default(now())
+  letters    Letter[]
 }
 
 model Letter {

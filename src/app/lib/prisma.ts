@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+export const prisma = new PrismaClient();
 
 export const fetchLetters = async () => {
   return await prisma.letter.findMany({
@@ -9,7 +9,19 @@ export const fetchLetters = async () => {
 };
 
 export const createLetter = async (autherId: number, content: string, notifyAt: Date) => {
-  return await prisma.letter.create({
-    data: { autherId, content, notifyAt },
-  });
+  try {
+    const newLetter = await prisma.letter.create({
+      data: {
+        autherId,
+        content,
+        notifyAt,
+      },
+    });
+
+    console.log("Letter created successfully:", newLetter);
+    return newLetter;
+  } catch(error: any) {
+    console.error("Error in createLetter:", error.message);
+    throw new Error(`Prisma Error: ${error.message}`);
+  }
 };
