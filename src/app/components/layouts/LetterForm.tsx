@@ -4,9 +4,12 @@ import styles from "./LetterForm.module.css";
 import { postLetter } from "@/app/lib/fetchLetters";
 import { Button } from "@/app/components/elements/Button";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 
 export default function LetterForm() {
+  const { data: session } = useSession();
+  const [autherId, setAutherId] = useState<number | null>(null);
   const [isSend, setIsSend] = useState(false);
   const [sendStatus, setSendStatus] = useState("送信しよう!");
   const [requiredMessage, setRequiredMessage] = useState("");
@@ -16,7 +19,32 @@ export default function LetterForm() {
   const [notifyAt, setNotifyAt] = useState("");
   const router = useRouter();
 
+  useEffect(() => {
+    const fetchUserId = async () => {
+      if (session?.user?.email) {
+        try {
+          const response = await fetch(`/api/user/${session.user.email}`);
+          if (!response.ok) {
+            throw new Error("Failed to fetch user id");
+          }
+          const data = await response.json();
+          setAutherId(data.id);
+        } catch (error) {
+          console.error("Error fetching user ID:", error);
+          setRequiredMessage("ユーザ情報の取得に失敗しました");
+        }
+      }
+    };
+
+    fetchUserId();
+  }, [session]);
+
   const handleSendLetter = async () => {
+    if (autherId === null) {
+      setRequiredMessage("ログインが必要です!");
+      return;
+    }
+
     if (!message.trim()) {
       setRequiredMessage("メッセージの入力は必須です!");
       return;
@@ -33,7 +61,6 @@ export default function LetterForm() {
       setSendStatus("送信中...");
 
       try {
-        const autherId = 1;
         await postLetter(autherId, message, new Date(notifyAt));
 
         setTimeout(() => {
