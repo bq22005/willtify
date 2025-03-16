@@ -27,6 +27,7 @@ export const config: NextAuthConfig = {
           existingUser = await prisma.user.create({
             data: {
               username: user.name || `user_${Date.now()}`,
+              icon: user.image || "/user_default.png",
               email: user.email,
               provider: account?.provider || "credentials",
               providerId: account?.providerAccountId || null,
