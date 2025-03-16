@@ -1,6 +1,7 @@
 import { prisma } from "@/app/lib/prisma";
-import bcrypt from "bcryptjs";
+import { auth, signIn } from "@/auth";
 import { NextResponse } from "next/server";
+import bcrypt from "bcryptjs";
 
 export async function POST(req: Request) {
   try {
@@ -10,17 +11,22 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "すべての項目を入力してください" }, { status: 400 });
     }
 
-    const user = await prisma.user.findUnique({ where: { username }});
-    if (!user || !user.password) {
+    const result = await signIn("credentials", {
+      username,
+      password,
+      redirect: false,
+    });
+
+    if (!result || result.error) {
       return NextResponse.json({ error: "ユーザ名またはパスワードが異なります" }, { status: 400 });
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-      return NextResponse.json({ error: "ユーザ名またはパスワードが異なります" }, { status: 400})
-    }
+    const session = await auth();
 
-    return NextResponse.json({ message: "ログイン成功" }, { status: 200 });
+    return NextResponse.json({
+      message: "ログイン成功",
+      session,
+    }, { status: 200 });
   } catch (error) {
     console.error("Signin Error", error);
     return NextResponse.json({ error: "サーバエラーが発生しました" }, { status: 500 });

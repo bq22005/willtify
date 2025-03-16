@@ -46,6 +46,7 @@ export default function ToggleForm() {
 
     const data = await response.json();
     if (response.ok) {
+      localStorage.setItem("user", JSON.stringify(data.user));
       router.push("/");
     } else {
       alert(data.error);
