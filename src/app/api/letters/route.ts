@@ -35,7 +35,6 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    console.log("Received body:", body);
 
     const { autherId, content, notifyAt } = body;
     if (!autherId || !content || !notifyAt) {
@@ -49,7 +48,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Database error" }, { status: 500 });
     }
 
-    console.log("Letter successfully saved:", newLetter);
     return NextResponse.json(newLetter, { status: 201 });
   } catch (error) {
     console.error("Error in POST /api/letters:", error);

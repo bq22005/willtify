@@ -18,6 +18,8 @@ model User {
   icon       String   @default("/user_default.png")
   createdAt  DateTime @default(now())
   letters    Letter[]
+
+  @@unique([provider, providerId])
 }
 
 model Letter {

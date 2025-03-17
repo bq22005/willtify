@@ -9,17 +9,15 @@ export const config: NextAuthConfig = {
   providers: [
     Google,
     GitHub,
-
     Credentials({
       name: "Credentials",
       credentials: {
         username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(
-        credentials: Partial<Record<"username" | "password", unknown>>,
-        req: Request
-      ) {
+      async authorize(credentials) {
+        console.log("authorize credentials:", credentials);
+
         if (!credentials?.username || !credentials?.password) {
           throw new Error("すべての項目を入力してください");
         }
@@ -27,12 +25,11 @@ export const config: NextAuthConfig = {
         const username = credentials.username as string;
         const password = credentials.password as string;
 
-        const user = await prisma.user.findUnique({
-          where: { username },
-        });
+        const user = await prisma.user.findUnique({ where: { username } });
+        console.log("authorize user:", user);
 
         if (!user || !user.password) {
-          throw new Error("ユーザ名またはパスワードが異なります");
+          throw new Error("CredentialsSignin");
         }
 
         const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -46,69 +43,33 @@ export const config: NextAuthConfig = {
           email: user.email,
           image: user.icon || "/user_default.png",
         };
-      }
+      },
     }),
   ],
-  basePath: "/api/auth",
   callbacks: {
-    async signIn({ user, account }) {
-      if (account?.provider === "credentials") {
-        return true;
-      }
-
-      if (!user.email && !account?.providerAccountId) return false;
-
-      try {
-        let existingUser = await prisma.user.findFirst({
-          where: {
-            OR: [
-              user.email ? { email: user.email } : {},
-              account?.providerAccountId ? { providerId: account?.providerAccountId} : {},
-            ],
-          },
-        });
-
-        if (!existingUser) {
-          existingUser = await prisma.user.create({
-            data: {
-              username: user.name || `user_${Date.now()}`,
-              icon: user.image || "/user_default.png",
-              email: user.email,
-              provider: account?.provider || "credentials",
-              providerId: account?.providerAccountId || null,
-            },
-          });
-        } else if (!existingUser.providerId && account?.providerAccountId) {
-          await prisma.user.update({
-            where: { id: existingUser.id },
-            data: { provider: account.provider, providerId: account.providerAccountId },
-          });
-        }
-
-        return true;
-      } catch(error) {
-        console.error("SignIn Error", error);
-        return false;
-      }
-    },
     async jwt({ token, user }) {
+      console.log("JWT token before update:", token);
+      console.log("JWT user:", user);
+
       if (user) {
-        token.id = Number(user.id);
+        token.id = user.id ? Number(user.id) : token.id ?? "guest";
         token.name = user.name;
         token.email = user.email;
-        token.picture = user.image || null;
+        token.picture = user.image || "/user_default.png";
       }
       return token;
     },
     async session({ session, token }) {
-      if (session.user)  {
+      console.log("Session token:", token);
+
+      if (session.user) {
         session.user.id = String(token.id);
         session.user.name = token.name ?? "";
         session.user.email = token.email ?? "";
         session.user.image = token.picture ?? "/user_default.png";
       }
       return session;
-    }
+    },
   },
 };
 

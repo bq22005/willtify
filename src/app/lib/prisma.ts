@@ -18,7 +18,6 @@ export const createLetter = async (autherId: number, content: string, notifyAt: 
       },
     });
 
-    console.log("Letter created successfully:", newLetter);
     return newLetter;
   } catch(error: any) {
     console.error("Error in createLetter:", error.message);
