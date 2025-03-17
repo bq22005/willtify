@@ -10,7 +10,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .signin {
@@ -25,5 +25,5 @@
 }
 
 .userName {
-  margin: 0 10%;
+  margin: 0 10px;
 }
