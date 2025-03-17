@@ -97,12 +97,12 @@ export default function LetterForm() {
           ></textarea>
         </div>
       </div>
-      <div className={styles.notifyForm}>
-        <div className={styles.notifyFormContainer}>
+      <div className={styles.notifyFormContainer}>
+        <div className={styles.notifyForm}>
           <h3 className={styles.dateNav}>通知日:</h3>
           <input
             className={styles.date}
-            type="date"
+            type="datetime-local"
             value={notifyAt}
             onChange={(e) => setNotifyAt(e.target.value)}
             />
