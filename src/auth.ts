@@ -16,7 +16,6 @@ export const config: NextAuthConfig = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        console.log("authorize credentials:", credentials);
 
         if (!credentials?.username || !credentials?.password) {
           throw new Error("すべての項目を入力してください");
@@ -26,7 +25,6 @@ export const config: NextAuthConfig = {
         const password = credentials.password as string;
 
         const user = await prisma.user.findUnique({ where: { username } });
-        console.log("authorize user:", user);
 
         if (!user || !user.password) {
           throw new Error("CredentialsSignin");
@@ -48,8 +46,6 @@ export const config: NextAuthConfig = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      console.log("JWT token before update:", token);
-      console.log("JWT user:", user);
 
       if (user) {
         token.id = user.id ? Number(user.id) : token.id ?? "guest";
@@ -60,7 +56,6 @@ export const config: NextAuthConfig = {
       return token;
     },
     async session({ session, token }) {
-      console.log("Session token:", token);
 
       if (session.user) {
         session.user.id = String(token.id);

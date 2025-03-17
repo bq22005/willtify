@@ -18,8 +18,6 @@ export async function POST(req: Request) {
         redirect: false,
       });
   
-      console.log(`result: ${result}`);
-  
       if (!result || result.error) {
         console.error("認証エラー", result?.error);
         return NextResponse.json({ error: "ユーザ名またはパスワードが異なります" }, { status: 400 });

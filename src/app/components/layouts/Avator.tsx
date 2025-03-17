@@ -3,7 +3,6 @@ import { auth } from "@/auth";
 
 export async function Avator() {
   const session = await auth();
-  console.log(session);
 
   if (!session?.user) {
     return(
