@@ -3,11 +3,18 @@ import { prisma } from "@/app/lib/prisma";
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  const now = new Date();
   const session = await auth();
+  
   if (!session?.user?.name) return NextResponse.json([], { status: 401 });
 
   try {
     const letters = await prisma.letter.findMany({
+      where: {
+        notifyAt: {
+          lt: now,
+        },
+      },
       include: {
         auther: { select: { id: true, username: true, icon: true } },
       },

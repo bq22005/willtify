@@ -8,6 +8,20 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 
+const nowDate = new Date();
+const nowDateFormatted = new Intl.DateTimeFormat("ja-JP", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+  timeZone: "Asia/Tokyo",
+})
+  .format(nowDate)
+  .replace(/\//g, "-")
+  .replace(/(\d{4})-(\d{2})-(\d{2}), (\d{2}):(\d{2})/, "$1-$2-$3T$4:$5");
+
 export default function LetterForm() {
   const { data: session } = useSession();
   const [autherId, setAutherId] = useState<number | null>(null);
@@ -17,7 +31,7 @@ export default function LetterForm() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [buttonLabel, setButtonLabel] = useState("送信する");
   const [message, setMessage] = useState("");
-  const [notifyAt, setNotifyAt] = useState("");
+  const [notifyAt, setNotifyAt] = useState(nowDateFormatted);
   const router = useRouter();
 
   useEffect(() => {
@@ -103,6 +117,7 @@ export default function LetterForm() {
           <input
             className={styles.date}
             type="datetime-local"
+            min={nowDateFormatted}
             value={notifyAt}
             onChange={(e) => setNotifyAt(e.target.value)}
             />
