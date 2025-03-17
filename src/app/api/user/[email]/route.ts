@@ -3,8 +3,10 @@ import { prisma } from "@/app/lib/prisma";
 
 export async function GET(req: NextRequest, { params }: { params: { email: string } }) {
   try {
+    const { email } = await params;
+
     const user = await prisma.user.findUnique({
-      where: { email: params.email },
+      where: { email },
       select: { id: true },
     });
 
