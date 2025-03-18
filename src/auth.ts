@@ -44,7 +44,19 @@ export const config: NextAuthConfig = {
       },
     }),
   ],
+  pages: {
+    signIn: "/auth"
+  },
   callbacks: {
+    authorized({ request, auth }) {
+      try {
+        const { pathname } = request.nextUrl;
+        if (pathname === "/send") return !!auth;
+        return true;
+      } catch (error) {
+        console.error(error);
+      }
+    },
     async jwt({ token, user }) {
 
       if (user) {
