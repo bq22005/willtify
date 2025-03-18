@@ -12,7 +12,8 @@ export const fetchMyLetters = async () => {
     const response = await axios.get("/api/letters");
     return response.data;
   } catch (error) {
-    throw new Error("Failed to fetch my letters");
+    console.error("Failed to fetch my letters", error);
+    return [];
   }
 };
 
@@ -21,7 +22,8 @@ export const fetchOtherLetters = async () => {
     const response = await axios.get("/api/recommends");
     return response.data;
   } catch (error) {
-    throw new Error("Failed to fetch other letters");
+    console.error("Failed to fetch other letters", error);
+    return [];
   }
 };
 

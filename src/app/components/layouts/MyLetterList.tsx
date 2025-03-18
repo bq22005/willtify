@@ -13,7 +13,7 @@ const defaultLetter: Letter = {
 }
 
 export default function MyLetterList() {
-  const [myLetters, setMyLetters] = useState<Letter[]>([defaultLetter]);
+  const [myLetters, setMyLetters] = useState<Letter[]>([]);
 
   useEffect(() => {
       const fetchLetters = async () => {

@@ -13,7 +13,7 @@ const defaultLetter: Letter = {
 }
 
 export default function OtherLetterList() {
-  const [otherLetters, setOtherLetters] = useState<Letter[]>([defaultLetter]);
+  const [otherLetters, setOtherLetters] = useState<Letter[]>([]);
 
   useEffect(() => {
       const fetchLetters = async () => {
